@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Top 100-->
+        <!--Meme List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Top 100" id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftProjectSimpleMemeGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Meme List" id="BYZ-38-t0r" customClass="MemeListViewController" customModule="SwiftProjectSimpleMemeGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,6 +45,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="glO-Oq-Bs6"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="rWl-cE-ZRU" id="gOW-Js-k3c"/>
+                        <outlet property="reloadListButton" destination="Etv-6t-dnc" id="GHK-th-gbU"/>
+                        <outlet property="tableView" destination="cbj-8b-POQ" id="NYZ-xn-XLK"/>
                         <segue destination="JYm-o3-URY" kind="show" identifier="showEditor" id="FwE-LS-0Nu"/>
                     </connections>
                 </viewController>
@@ -55,7 +58,7 @@
         <!--Edit-->
         <scene sceneID="hMA-f1-ppf">
             <objects>
-                <viewController title="Edit" id="JYm-o3-URY" sceneMemberID="viewController">
+                <viewController title="Edit" id="JYm-o3-URY" customClass="EditorViewController" customModule="SwiftProjectSimpleMemeGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NKx-k7-wdE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,6 +110,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qlC-Wj-UxI"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="JW7-Qv-CU3" id="JPN-e6-rNf"/>
+                        <outlet property="bottomTextField" destination="HUr-sm-qZC" id="oky-CA-WEk"/>
+                        <outlet property="generateMemeButton" destination="Y0W-Q6-GYf" id="GcS-Ik-Typ"/>
+                        <outlet property="imageView" destination="HdM-6p-eW2" id="yfj-LO-dj2"/>
+                        <outlet property="topTextField" destination="mF2-OQ-Gpw" id="KHQ-Mj-DFz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DNB-d4-OaQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -133,7 +143,7 @@
         <!--Meme-->
         <scene sceneID="I0d-tM-mVp">
             <objects>
-                <viewController title="Meme" id="zbs-yx-CPv" sceneMemberID="viewController">
+                <viewController title="Meme" id="zbs-yx-CPv" customClass="FinalMemeViewController" customModule="SwiftProjectSimpleMemeGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0YV-AR-QXH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,6 +172,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OSc-t3-gzO"/>
+                    <connections>
+                        <outlet property="imageView" destination="j5e-rK-taG" id="AeO-Hc-Z7y"/>
+                        <outlet property="saveImageButton" destination="buZ-W8-q8L" id="hyo-ru-ycj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1e-0P-rCO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

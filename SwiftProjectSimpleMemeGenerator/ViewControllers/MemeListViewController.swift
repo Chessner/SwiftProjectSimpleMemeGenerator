@@ -8,7 +8,8 @@
 import UIKit
 
 class MemeListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-    private let data = [""]
+    private var data = MemesData()
+    private var images: [UIImage]?
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -17,9 +18,24 @@ class MemeListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     private let cellIdentifier = "CustomTableViewCell"
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        activityIndicator.startAnimating()
+        NetworkManager().fetchMemeList(completionHandler: { [weak self] (data) in
+            self?.data = data
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+                self?.activityIndicator.stopAnimating()
+            }
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        activityIndicator.hidesWhenStopped = true
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
@@ -29,14 +45,14 @@ class MemeListViewController: UIViewController, UITableViewDataSource, UITableVi
     //MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return data.data?.memes?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CustomTableViewCell else {
             return UITableViewCell()
         }
-        tableViewCell.customLabel = "Hello"
+        tableViewCell.customLabel = data.data?.memes?[indexPath.row].name
         tableViewCell.customImage = nil
 //        let tableViewCell = tableView.dequeueReusableCell(withIdentifier:"\(UITableViewCell.self)" ,for: indexPath)
 //        tableViewCell.textLabel?.text = "Hello"

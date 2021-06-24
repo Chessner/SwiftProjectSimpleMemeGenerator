@@ -17,6 +17,8 @@
 		8714F7802681DEA0007B3BDF /* FinalMemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8714F77F2681DEA0007B3BDF /* FinalMemeViewController.swift */; };
 		8714F7842681E42D007B3BDF /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8714F7832681E42D007B3BDF /* CustomTableViewCell.swift */; };
 		8714F7862681E4A6007B3BDF /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8714F7852681E4A6007B3BDF /* CustomTableViewCell.xib */; };
+		87AE4B092684CC7500370FD2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE4B082684CC7500370FD2 /* NetworkManager.swift */; };
+		87AE4B0C2684CEAB00370FD2 /* MemeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE4B0B2684CEAB00370FD2 /* MemeList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		8714F77F2681DEA0007B3BDF /* FinalMemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalMemeViewController.swift; sourceTree = "<group>"; };
 		8714F7832681E42D007B3BDF /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		8714F7852681E4A6007B3BDF /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		87AE4B082684CC7500370FD2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		87AE4B0B2684CEAB00370FD2 /* MemeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 		8714F7402681CF88007B3BDF = {
 			isa = PBXGroup;
 			children = (
+				87AE4B0A2684CCEF00370FD2 /* Models */,
+				87AE4B072684CC6900370FD2 /* Networking */,
 				8714F74B2681CF88007B3BDF /* SwiftProjectSimpleMemeGenerator */,
 				8714F74A2681CF88007B3BDF /* Products */,
 			);
@@ -128,6 +134,22 @@
 				8714F7852681E4A6007B3BDF /* CustomTableViewCell.xib */,
 			);
 			path = CustomTableViewCell;
+			sourceTree = "<group>";
+		};
+		87AE4B072684CC6900370FD2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				87AE4B082684CC7500370FD2 /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		87AE4B0A2684CCEF00370FD2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				87AE4B0B2684CEAB00370FD2 /* MemeList.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +284,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8714F7842681E42D007B3BDF /* CustomTableViewCell.swift in Sources */,
+				87AE4B0C2684CEAB00370FD2 /* MemeList.swift in Sources */,
 				8714F7512681CF88007B3BDF /* MemeListViewController.swift in Sources */,
+				87AE4B092684CC7500370FD2 /* NetworkManager.swift in Sources */,
 				8714F7802681DEA0007B3BDF /* FinalMemeViewController.swift in Sources */,
 				8714F74D2681CF88007B3BDF /* AppDelegate.swift in Sources */,
 				8714F74F2681CF88007B3BDF /* SceneDelegate.swift in Sources */,

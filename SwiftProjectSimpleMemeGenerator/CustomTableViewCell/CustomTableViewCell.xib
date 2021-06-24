@@ -28,9 +28,11 @@
                 <constraints>
                     <constraint firstItem="ifd-1G-iRU" firstAttribute="centerY" secondItem="RDo-7S-pYZ" secondAttribute="centerY" id="28V-jJ-EyX"/>
                     <constraint firstItem="ifd-1G-iRU" firstAttribute="leading" secondItem="ILX-rQ-Pkz" secondAttribute="trailing" constant="87.5" id="4rn-pW-hG1"/>
+                    <constraint firstItem="ifd-1G-iRU" firstAttribute="top" secondItem="RDo-7S-pYZ" secondAttribute="topMargin" constant="48.5" id="PGx-iy-Hnj"/>
                     <constraint firstItem="ILX-rQ-Pkz" firstAttribute="leading" secondItem="RDo-7S-pYZ" secondAttribute="leading" constant="10" id="XDT-Vf-W5P"/>
                     <constraint firstItem="ILX-rQ-Pkz" firstAttribute="top" secondItem="RDo-7S-pYZ" secondAttribute="top" constant="5" id="d3H-37-vUu"/>
                     <constraint firstAttribute="bottom" secondItem="ILX-rQ-Pkz" secondAttribute="bottom" constant="5" id="dXP-gs-MNa"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ifd-1G-iRU" secondAttribute="bottom" constant="48.5" id="w25-PG-EEp"/>
                     <constraint firstItem="ifd-1G-iRU" firstAttribute="centerX" secondItem="RDo-7S-pYZ" secondAttribute="centerX" multiplier="1.2" id="yFd-Jg-t6a"/>
                 </constraints>
             </tableViewCellContentView>

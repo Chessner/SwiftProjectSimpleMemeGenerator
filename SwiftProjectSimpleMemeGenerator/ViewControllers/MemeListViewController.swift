@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class MemeListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     private var data = MemesData()
@@ -21,14 +22,25 @@ class MemeListViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        images = [UIImage]()
+        
         activityIndicator.startAnimating()
         NetworkManager().fetchMemeList(completionHandler: { [weak self] (data) in
             self?.data = data
+            
+            var i = 0
+            while i < data.data?.memes?.count ?? 0{
+                NetworkManager().fetchMemeImage(url: data.data?.memes?[i].url ?? "", completionHandler: { [weak self] (newImage) in
+                    self?.images?.append(newImage)
+                })
+                i += 1
+            }
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
                 self?.activityIndicator.stopAnimating()
             }
         })
+        
     }
     
     override func viewDidLoad() {
@@ -52,13 +64,15 @@ class MemeListViewController: UIViewController, UITableViewDataSource, UITableVi
         guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CustomTableViewCell else {
             return UITableViewCell()
         }
+        
         tableViewCell.customLabel = data.data?.memes?[indexPath.row].name
-        tableViewCell.customImage = nil
-//        let tableViewCell = tableView.dequeueReusableCell(withIdentifier:"\(UITableViewCell.self)" ,for: indexPath)
-//        tableViewCell.textLabel?.text = "Hello"
+        if images?.count ?? 0 > indexPath.row{
+            tableViewCell.customImage = images?[indexPath.row]
+        }
+
         return tableViewCell
     }
-
-
+    
+    
 }
 

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class NetworkManager {
     let getMemeListURL = URL(string: "https://api.imgflip.com/get_memes")
@@ -29,17 +31,28 @@ class NetworkManager {
     func fetchMemeImage(url: String, completionHandler: @escaping (UIImage) -> Void) {
         let imageUrl = URL(string: url)
         let session = URLSession.shared
-//        if let url = imageUrl{
-//            let task = session.dataTask(with: url, completionHandler: { data, response, error in
-//                print(response?.description ?? "")
-//                if let data = data {
-//                    DispatchQueue.main.async { /// execute on main thread
-//                    self.imageView.image = UIImage(data: data)
-//                }
+
+        if let url = imageUrl{
+            let task = session.dataTask(with: url, completionHandler: {data, response, error in
+                print(response?.description ?? "")
+                if let data = data {
+                    let image = UIImage(data: data)
+                    completionHandler(image ?? UIImage())
+                }
+                
+            })
+            task.resume()
+        }
+//        if let url = imageUrl {
+//            let task = session.dataTask(with: url) { data, response, error in
+//                guard let data = data, error == nil else { return }
 //
-//            })
-//                task.resume
-       // }
+//                DispatchQueue.main.async { /// execute on main thread
+//                    let image = UIImage(data: data)
+//                }
+//            }
+//            task.resume()
+//        }
         
     }
     

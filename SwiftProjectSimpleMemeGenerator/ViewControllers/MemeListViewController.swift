@@ -13,13 +13,14 @@ class MemeListViewController: UIViewController, UITableViewDataSource, UITableVi
     private var images: [UIImage]?
     private var editMeme = Meme()
     
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var reloadListButton: UIButton!
     
     private let cellIdentifier = "CustomTableViewCell"
     
+    
+    // MARK: - viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -29,19 +30,35 @@ class MemeListViewController: UIViewController, UITableViewDataSource, UITableVi
         NetworkManager().fetchMemeList(completionHandler: { [weak self] (data) in
             self?.data = data
             
+            //Create array with 100 images
             var i = 0
             while i < data.data?.memes?.count ?? 0{
-                NetworkManager().fetchMemeImage(url: data.data?.memes?[i].url ?? "", completionHandler: { [weak self] (newImage) in
-                    self?.images?.append(newImage)
+                self?.images?.append(UIImage())
+                i += 1
+            }
+            
+            
+            //Download all images
+            var j = 0
+            while j < data.data?.memes?.count ?? 0{
+                NetworkManager().fetchMemeImage(url: data.data?.memes?[j].url ?? "", completionHandler: { [weak self] (newImage) in
+                    
+                    //Look for correct position in array for image
+                    var x = 0
+                    while newImage.url != data.data?.memes?[x].url {
+                        x += 1
+                    }
+                    self?.images?[x] = newImage.image ?? UIImage()
+                    
                     DispatchQueue.main.sync {
-                        var row = self?.images?.count ?? 0
+                        var row = x
                         if row != 0{
                             row -= 1
                         }
                         self?.tableView.reloadRows(at: [IndexPath(row: row, section: 0)], with: UITableView.RowAnimation.right)
                     }
                 })
-                i += 1
+                j += 1
             }
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
@@ -51,6 +68,7 @@ class MemeListViewController: UIViewController, UITableViewDataSource, UITableVi
         
     }
     
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -58,7 +76,8 @@ class MemeListViewController: UIViewController, UITableViewDataSource, UITableVi
         
         tableView.dataSource = self
         tableView.delegate = self
-        // tableView.rowHeight = UITableView.automaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 140
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: .main), forCellReuseIdentifier: "CustomTableViewCell")
     }
 
@@ -66,11 +85,23 @@ class MemeListViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if data.data?.memes?[indexPath.row].box_count ?? 0 >= 2 && ((data.data?.memes?[indexPath.row].box_count ?? 0) <= 5)  {
             editMeme = data.data?.memes?[indexPath.row] ?? Meme()
+            
+            tableView.deselectRow(at: indexPath, animated: true)
+            
             performSegue(withIdentifier: "showEditor", sender: self)
         }
     }
     
+//    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
+//    private func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
+    
 
+    
+    // MARK: - IBSegueAction
     @IBSegueAction func makeEditorViewController(_ coder: NSCoder) -> EditorViewController? {
         return EditorViewController(coder: coder, meme: editMeme)
     }
@@ -100,7 +131,7 @@ class MemeListViewController: UIViewController, UITableViewDataSource, UITableVi
         
         return tableViewCell
     }
-    
+
     
 }
 

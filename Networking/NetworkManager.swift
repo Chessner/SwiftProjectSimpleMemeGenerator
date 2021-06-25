@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Alamofire
-import AlamofireImage
 
 class NetworkManager {
     let getMemeListURL = URL(string: "https://api.imgflip.com/get_memes")
@@ -29,31 +27,22 @@ class NetworkManager {
         }
     }
     
-    func fetchMemeImage(url: String, completionHandler: @escaping (UIImage) -> Void) {
+    func fetchMemeImage(url: String, completionHandler: @escaping (MemeImage) -> Void) {
         let imageUrl = URL(string: url)
         let session = URLSession.shared
         
-        if let url = imageUrl{
-            let task = session.dataTask(with: url, completionHandler: {data, response, error in
-                //print(response?.description ?? "")
+        if let URL = imageUrl{
+            let task = session.dataTask(with: URL, completionHandler: {data, response, error in
+                print(response?.description ?? "")
                 if let data = data {
                     let image = UIImage(data: data)
-                    completionHandler(image ?? UIImage())
+                    let memeImage = MemeImage(image: image ?? UIImage(), url: url)
+                    completionHandler(memeImage)
                 }
                 
             })
             task.resume()
         }
-        //        if let url = imageUrl {
-        //            let task = session.dataTask(with: url) { data, response, error in
-        //                guard let data = data, error == nil else { return }
-        //
-        //                DispatchQueue.main.async { /// execute on main thread
-        //                    let image = UIImage(data: data)
-        //                }
-        //            }
-        //            task.resume()
-        //        }
         
     }
     
@@ -63,27 +52,35 @@ class NetworkManager {
         var request = URLRequest(url: getCaptionImageURL)
         request.httpMethod = "POST"
        // request.httpBody
+        //let templateID:String = captionImageData.template_id!
         
-        let jsonData = try? JSONEncoder().encode(captionImageData)
-        request.httpBody?.append(jsonData!)
+        //let postString = "\(templateID)&text0=Hello&text1=Hi&username=swiftproject2021memegenerator&password=swiftproject2021memegenerator"
         
-        //        let task = session.uploadTask(with: request, fromFile: jsonData, completionHandler: {data,response,error in
-        //            print(response?.description ?? "")
-        //
-        //
-        //
-        //        })
-        //        task.resume()
+        //request.httpBody = postString.data(using: String.Encoding.utf8)
         
-        let task = session.dataTask(with: request) { data, response, error in
+        let jsonData:Data = try! JSONEncoder().encode(captionImageData)
+        request.httpBody? = jsonData
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = session.dataTask(with: request,completionHandler: { data, response, error in
             print(response?.description ?? "")
             
             if let data = data{
                 print(String(decoding: data, as: UTF8.self))
             }
             print(error.debugDescription)
-        }
+            
+        })
         task.resume()
+//        let task = session.dataTask(with: request, completionHandler: { data, response, error in
+//            print(response?.description ?? "")
+//
+//            if let data = data{
+//                print(String(decoding: data, as: UTF8.self))
+//            }
+//            print(error.debugDescription)
+//        })
+//        task.resume()
     }
     
 }

@@ -69,14 +69,6 @@ final class EditorViewController: UIViewController {
         return FinalMemeViewController(coder: coder, data: finalImageData)
     }
     
-       
-        
-        
-
-    
-    
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -107,7 +99,7 @@ final class EditorViewController: UIViewController {
         
         activityIndicator.startAnimating()
         NetworkManager().fetchMemeImage(url: meme.url ?? "", completionHandler: { [weak self] (newImage) in
-            self?.memeImage = newImage
+            self?.memeImage = newImage.image ?? UIImage()
             DispatchQueue.main.sync {
                 self?.imageView.image = self?.memeImage
                 self?.activityIndicator.stopAnimating()

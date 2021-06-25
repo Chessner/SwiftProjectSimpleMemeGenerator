@@ -48,7 +48,7 @@
                         <outlet property="activityIndicator" destination="rWl-cE-ZRU" id="gOW-Js-k3c"/>
                         <outlet property="reloadListButton" destination="Etv-6t-dnc" id="GHK-th-gbU"/>
                         <outlet property="tableView" destination="cbj-8b-POQ" id="NYZ-xn-XLK"/>
-                        <segue destination="JYm-o3-URY" kind="show" identifier="showEditor" id="FwE-LS-0Nu"/>
+                        <segue destination="JYm-o3-URY" kind="show" identifier="showEditor" destinationCreationSelector="makeEditorViewController:" id="FwE-LS-0Nu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -66,13 +66,18 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HdM-6p-eW2">
                                 <rect key="frame" x="0.0" y="145" width="414" height="455"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Top Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mF2-OQ-Gpw">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text Box 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mF2-OQ-Gpw">
                                 <rect key="frame" x="10" y="610" width="394" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bottom Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HUr-sm-qZC">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text Box 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HUr-sm-qZC">
                                 <rect key="frame" x="10" y="655" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text Box 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TPr-iz-E9O">
+                                <rect key="frame" x="10" y="699" width="394" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -83,39 +88,61 @@
                                 <rect key="frame" x="330" y="98" width="64" height="37"/>
                                 <state key="normal" title="Generate"/>
                                 <connections>
-                                    <segue destination="zbs-yx-CPv" kind="show" identifier="showGeneratedMeme" id="0q1-Eb-18U"/>
+                                    <segue destination="zbs-yx-CPv" kind="show" identifier="showGeneratedMeme" destinationCreationSelector="makeFinalMeme:" id="0q1-Eb-18U"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text Box 4" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gfR-bd-Ndg">
+                                <rect key="frame" x="10" y="743" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text Box 5" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pz3-36-9QD">
+                                <rect key="frame" x="10" y="787" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="E3h-Gu-a5z"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HUr-sm-qZC" firstAttribute="leading" secondItem="E3h-Gu-a5z" secondAttribute="leading" constant="10" id="1Si-mb-T2N"/>
                             <constraint firstItem="E3h-Gu-a5z" firstAttribute="trailing" secondItem="HUr-sm-qZC" secondAttribute="trailing" constant="10" id="3HV-IB-g2I"/>
+                            <constraint firstItem="TPr-iz-E9O" firstAttribute="top" secondItem="HUr-sm-qZC" secondAttribute="bottom" constant="10" id="68y-Yr-dqK"/>
+                            <constraint firstItem="E3h-Gu-a5z" firstAttribute="trailing" secondItem="gfR-bd-Ndg" secondAttribute="trailing" constant="10" id="6Hc-8w-1vI"/>
                             <constraint firstItem="E3h-Gu-a5z" firstAttribute="trailing" secondItem="Y0W-Q6-GYf" secondAttribute="trailing" constant="20" id="9gF-Me-6ZO"/>
                             <constraint firstItem="HdM-6p-eW2" firstAttribute="top" secondItem="Y0W-Q6-GYf" secondAttribute="bottom" constant="10" id="B5p-hm-WPG"/>
                             <constraint firstItem="E3h-Gu-a5z" firstAttribute="trailing" secondItem="mF2-OQ-Gpw" secondAttribute="trailing" constant="10" id="BIq-Ec-YtN"/>
                             <constraint firstItem="JW7-Qv-CU3" firstAttribute="leading" secondItem="E3h-Gu-a5z" secondAttribute="leading" constant="20" id="Dx5-D6-9wX"/>
+                            <constraint firstItem="pz3-36-9QD" firstAttribute="top" secondItem="gfR-bd-Ndg" secondAttribute="bottom" constant="10" id="Ezu-Yp-q0j"/>
                             <constraint firstItem="HdM-6p-eW2" firstAttribute="leading" secondItem="E3h-Gu-a5z" secondAttribute="leading" id="F4J-wy-mXY"/>
                             <constraint firstItem="HUr-sm-qZC" firstAttribute="centerY" secondItem="NKx-k7-wdE" secondAttribute="centerY" multiplier="1.5" id="KqI-5V-DBq"/>
+                            <constraint firstItem="gfR-bd-Ndg" firstAttribute="leading" secondItem="NKx-k7-wdE" secondAttribute="leading" constant="10" id="MeC-SM-nI2"/>
                             <constraint firstItem="Y0W-Q6-GYf" firstAttribute="top" secondItem="E3h-Gu-a5z" secondAttribute="top" constant="10" id="P66-cR-fTX"/>
                             <constraint firstItem="HdM-6p-eW2" firstAttribute="top" secondItem="JW7-Qv-CU3" secondAttribute="bottom" constant="10" id="Qcr-PI-VVA"/>
+                            <constraint firstItem="E3h-Gu-a5z" firstAttribute="trailing" secondItem="TPr-iz-E9O" secondAttribute="trailing" constant="10" id="Xbs-BP-6pq"/>
                             <constraint firstItem="mF2-OQ-Gpw" firstAttribute="leading" secondItem="E3h-Gu-a5z" secondAttribute="leading" constant="10" id="YgG-Jt-Raq"/>
+                            <constraint firstItem="pz3-36-9QD" firstAttribute="leading" secondItem="NKx-k7-wdE" secondAttribute="leading" constant="10" id="Yzg-79-xIv"/>
+                            <constraint firstItem="gfR-bd-Ndg" firstAttribute="top" secondItem="TPr-iz-E9O" secondAttribute="bottom" constant="10" id="bRC-MQ-PSC"/>
+                            <constraint firstItem="E3h-Gu-a5z" firstAttribute="trailing" secondItem="pz3-36-9QD" secondAttribute="trailing" constant="10" id="cXC-Za-qlk"/>
                             <constraint firstItem="E3h-Gu-a5z" firstAttribute="trailing" secondItem="HdM-6p-eW2" secondAttribute="trailing" id="chX-B8-2cM"/>
                             <constraint firstItem="JW7-Qv-CU3" firstAttribute="top" secondItem="E3h-Gu-a5z" secondAttribute="top" constant="10" id="fjZ-O9-imE"/>
                             <constraint firstItem="HUr-sm-qZC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mF2-OQ-Gpw" secondAttribute="bottom" constant="10" id="kSL-3N-6A7"/>
                             <constraint firstItem="mF2-OQ-Gpw" firstAttribute="top" secondItem="HdM-6p-eW2" secondAttribute="bottom" constant="10" id="lPS-nG-F1h"/>
                             <constraint firstItem="Y0W-Q6-GYf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JW7-Qv-CU3" secondAttribute="trailing" constant="8" symbolic="YES" id="mgo-Ap-Hz4"/>
                             <constraint firstItem="mF2-OQ-Gpw" firstAttribute="centerY" secondItem="NKx-k7-wdE" secondAttribute="centerY" multiplier="1.4" id="sSm-PO-Gf8"/>
+                            <constraint firstItem="TPr-iz-E9O" firstAttribute="leading" secondItem="E3h-Gu-a5z" secondAttribute="leading" constant="10" id="vAZ-mB-oL3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qlC-Wj-UxI"/>
                     <connections>
                         <outlet property="activityIndicator" destination="JW7-Qv-CU3" id="JPN-e6-rNf"/>
-                        <outlet property="bottomTextField" destination="HUr-sm-qZC" id="oky-CA-WEk"/>
                         <outlet property="generateMemeButton" destination="Y0W-Q6-GYf" id="GcS-Ik-Typ"/>
                         <outlet property="imageView" destination="HdM-6p-eW2" id="yfj-LO-dj2"/>
-                        <outlet property="topTextField" destination="mF2-OQ-Gpw" id="KHQ-Mj-DFz"/>
+                        <outlet property="text1" destination="mF2-OQ-Gpw" id="VZw-Te-na5"/>
+                        <outlet property="text2" destination="HUr-sm-qZC" id="181-21-VzD"/>
+                        <outlet property="text3" destination="TPr-iz-E9O" id="Ydx-1H-9Sn"/>
+                        <outlet property="text4" destination="gfR-bd-Ndg" id="Zbr-XS-C9J"/>
+                        <outlet property="text5" destination="pz3-36-9QD" id="bUI-Df-hJu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DNB-d4-OaQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

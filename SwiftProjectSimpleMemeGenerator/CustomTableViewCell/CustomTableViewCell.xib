@@ -16,10 +16,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ILX-rQ-Pkz">
-                        <rect key="frame" x="10" y="5" width="130" height="130"/>
+                        <rect key="frame" x="10" y="5" width="130.5" height="130"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="130.5" id="4Zc-AW-nMA"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifd-1G-iRU">
-                        <rect key="frame" x="227.5" y="59.5" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifd-1G-iRU">
+                        <rect key="frame" x="227.5" y="10" width="42" height="120"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -27,13 +30,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="ifd-1G-iRU" firstAttribute="centerY" secondItem="RDo-7S-pYZ" secondAttribute="centerY" id="28V-jJ-EyX"/>
-                    <constraint firstItem="ifd-1G-iRU" firstAttribute="leading" secondItem="ILX-rQ-Pkz" secondAttribute="trailing" constant="87.5" id="4rn-pW-hG1"/>
-                    <constraint firstItem="ifd-1G-iRU" firstAttribute="top" secondItem="RDo-7S-pYZ" secondAttribute="topMargin" constant="48.5" id="PGx-iy-Hnj"/>
+                    <constraint firstAttribute="bottom" secondItem="ifd-1G-iRU" secondAttribute="bottom" constant="10" id="J3J-Wm-r3V"/>
                     <constraint firstItem="ILX-rQ-Pkz" firstAttribute="leading" secondItem="RDo-7S-pYZ" secondAttribute="leading" constant="10" id="XDT-Vf-W5P"/>
                     <constraint firstItem="ILX-rQ-Pkz" firstAttribute="top" secondItem="RDo-7S-pYZ" secondAttribute="top" constant="5" id="d3H-37-vUu"/>
                     <constraint firstAttribute="bottom" secondItem="ILX-rQ-Pkz" secondAttribute="bottom" constant="5" id="dXP-gs-MNa"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="ifd-1G-iRU" secondAttribute="bottom" constant="48.5" id="w25-PG-EEp"/>
+                    <constraint firstItem="ifd-1G-iRU" firstAttribute="top" secondItem="RDo-7S-pYZ" secondAttribute="top" constant="10" id="shR-3V-BP7"/>
                     <constraint firstItem="ifd-1G-iRU" firstAttribute="centerX" secondItem="RDo-7S-pYZ" secondAttribute="centerX" multiplier="1.2" id="yFd-Jg-t6a"/>
+                    <constraint firstItem="ifd-1G-iRU" firstAttribute="leading" relation="lessThanOrEqual" secondItem="ILX-rQ-Pkz" secondAttribute="trailing" constant="87" id="yuJ-07-Gha"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

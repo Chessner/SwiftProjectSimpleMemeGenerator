@@ -11,6 +11,7 @@ import Foundation
 class MemeListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     private var data = MemesData()
     private var images: [UIImage]?
+    private var editMeme = Meme()
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -32,6 +33,13 @@ class MemeListViewController: UIViewController, UITableViewDataSource, UITableVi
             while i < data.data?.memes?.count ?? 0{
                 NetworkManager().fetchMemeImage(url: data.data?.memes?[i].url ?? "", completionHandler: { [weak self] (newImage) in
                     self?.images?.append(newImage)
+                    DispatchQueue.main.sync {
+                        var row = self?.images?.count ?? 0
+                        if row != 0{
+                            row -= 1
+                        }
+                        self?.tableView.reloadRows(at: [IndexPath(row: row, section: 0)], with: UITableView.RowAnimation.right)
+                    }
                 })
                 i += 1
             }
@@ -50,10 +58,27 @@ class MemeListViewController: UIViewController, UITableViewDataSource, UITableVi
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = UITableView.automaticDimension
+        // tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: .main), forCellReuseIdentifier: "CustomTableViewCell")
     }
+
+    //MARK: - UITableViewDelegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if data.data?.memes?[indexPath.row].box_count ?? 0 >= 2 && ((data.data?.memes?[indexPath.row].box_count ?? 0) <= 5)  {
+            editMeme = data.data?.memes?[indexPath.row] ?? Meme()
+            performSegue(withIdentifier: "showEditor", sender: self)
+        }
+    }
     
+
+    @IBSegueAction func makeEditorViewController(_ coder: NSCoder) -> EditorViewController? {
+        return EditorViewController(coder: coder, meme: editMeme)
+    }
+    
+
+
+
+
     //MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,10 +91,13 @@ class MemeListViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         tableViewCell.customLabel = data.data?.memes?[indexPath.row].name
-        if images?.count ?? 0 > indexPath.row{
-            tableViewCell.customImage = images?[indexPath.row]
+        let row = indexPath.row
+        if images?.count ?? 0 > row{
+            tableViewCell.customImage = images?[row]
+        } else {
+            tableViewCell.customImage = nil
         }
-
+        
         return tableViewCell
     }
     

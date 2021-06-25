@@ -11,13 +11,14 @@ import AlamofireImage
 
 class NetworkManager {
     let getMemeListURL = URL(string: "https://api.imgflip.com/get_memes")
+    let getCaptionImageURL = URL(string: "https://api.imgflip.com/caption_image")!
     
     func fetchMemeList(completionHandler: @escaping (MemesData) -> Void) {
         let session = URLSession.shared
 //        let url = URL(string:"https://api.imgflip.com/get_memes")
         if let url = getMemeListURL {
             let task = session.dataTask(with: url, completionHandler: { data, response, error in
-                print(response?.description ?? "")
+                //print(response?.description ?? "")
                 if let data = data {
 //                    print(String(decoding: data, as: UTF8.self))
                     let memesData = try? JSONDecoder().decode(MemesData.self, from: data)
@@ -34,7 +35,7 @@ class NetworkManager {
 
         if let url = imageUrl{
             let task = session.dataTask(with: url, completionHandler: {data, response, error in
-                print(response?.description ?? "")
+                //print(response?.description ?? "")
                 if let data = data {
                     let image = UIImage(data: data)
                     completionHandler(image ?? UIImage())
@@ -54,6 +55,29 @@ class NetworkManager {
 //            task.resume()
 //        }
         
+    }
+    
+    func fetchCaptionImage(captionImageData: CaptionImageData, completionHandler: @escaping (UIImage) -> Void){
+        let session = URLSession.shared
+        
+        var request = URLRequest(url: getCaptionImageURL)
+        request.httpMethod = "POST"
+
+        let jsonData = try? JSONEncoder().encode(captionImageData)
+        
+//        let task = session.uploadTask(with: request, fromFile: jsonData, completionHandler: {data,response,error in
+//            print(response?.description ?? "")
+//
+//
+//
+//        })
+//        task.resume()
+        
+        let task = session.uploadTask(with: request, from: jsonData) { data, response, error in
+            print(response?.description ?? "")
+        }
+
+        task.resume()
     }
     
 }

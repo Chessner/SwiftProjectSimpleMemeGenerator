@@ -20,10 +20,6 @@
                                 <rect key="frame" x="0.0" y="145" width="414" height="751"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Etv-6t-dnc">
-                                <rect key="frame" x="318" y="98" width="76" height="37"/>
-                                <state key="normal" title="Reload List"/>
-                            </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="rWl-cE-ZRU">
                                 <rect key="frame" x="20" y="98" width="37" height="37"/>
                             </activityIndicatorView>
@@ -31,22 +27,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="cbj-8b-POQ" firstAttribute="top" secondItem="Etv-6t-dnc" secondAttribute="bottom" constant="10" id="7MY-nc-4qo"/>
                             <constraint firstItem="cbj-8b-POQ" firstAttribute="top" secondItem="rWl-cE-ZRU" secondAttribute="bottom" constant="10" id="B1a-2Z-Q88"/>
                             <constraint firstItem="cbj-8b-POQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DDc-RF-CF9"/>
                             <constraint firstItem="rWl-cE-ZRU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="I6I-MT-x9W"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Etv-6t-dnc" secondAttribute="trailing" constant="20" id="LPK-ys-OZt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cbj-8b-POQ" secondAttribute="trailing" id="fQD-rn-2KF"/>
                             <constraint firstAttribute="bottom" secondItem="cbj-8b-POQ" secondAttribute="bottom" id="pml-VO-oM9"/>
-                            <constraint firstItem="Etv-6t-dnc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rWl-cE-ZRU" secondAttribute="trailing" constant="8" symbolic="YES" id="rc2-Zr-CAA"/>
                             <constraint firstItem="rWl-cE-ZRU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="var-ms-JKz"/>
-                            <constraint firstItem="Etv-6t-dnc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="zdo-qk-mU1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="glO-Oq-Bs6"/>
                     <connections>
                         <outlet property="activityIndicator" destination="rWl-cE-ZRU" id="gOW-Js-k3c"/>
-                        <outlet property="reloadListButton" destination="Etv-6t-dnc" id="GHK-th-gbU"/>
                         <outlet property="tableView" destination="cbj-8b-POQ" id="NYZ-xn-XLK"/>
                         <segue destination="JYm-o3-URY" kind="show" identifier="showEditor" destinationCreationSelector="makeEditorViewController:" id="FwE-LS-0Nu"/>
                     </connections>

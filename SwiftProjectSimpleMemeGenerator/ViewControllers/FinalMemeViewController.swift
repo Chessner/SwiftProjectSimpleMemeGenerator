@@ -14,6 +14,7 @@ final class FinalMemeViewController: UIViewController {
     @IBOutlet weak var saveImageButton: UIButton!
     private let captionImageData: CaptionImageRequestData?
     private var image = UIImage()
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     init?(coder: NSCoder, data: CaptionImageRequestData) {
         captionImageData = data
@@ -27,16 +28,30 @@ final class FinalMemeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        activityIndicator.startAnimating()
+        
         NetworkManager().fetchCaptionImage(captionImageData: captionImageData!, completionHandler: { [weak self] (newImage) in
             self?.image = newImage
             DispatchQueue.main.sync {
                 self?.imageView.image = self?.image
+                self?.activityIndicator.stopAnimating()
             }
         })
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicator.hidesWhenStopped = true
     }
+    
+    //Save image to library.
+    @IBAction func saveImageToLibrary(_ sender: Any) {
+        if image != UIImage(){
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        }
+    }
+    
+    
 
 }

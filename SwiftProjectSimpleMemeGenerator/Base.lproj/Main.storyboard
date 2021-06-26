@@ -295,13 +295,21 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="Khl-4j-Bb4"/>
                                 </constraints>
                                 <state key="normal" title="Save to images"/>
+                                <connections>
+                                    <action selector="saveImageToLibrary:" destination="zbs-yx-CPv" eventType="touchUpInside" id="WCs-5D-UrH"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="iWL-ao-WRQ">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tBj-bh-ufR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="j5e-rK-taG" firstAttribute="top" secondItem="tBj-bh-ufR" secondAttribute="top" id="6w1-lE-Nyc"/>
+                            <constraint firstItem="iWL-ao-WRQ" firstAttribute="centerX" secondItem="0YV-AR-QXH" secondAttribute="centerX" id="JxI-BO-jWE"/>
                             <constraint firstItem="buZ-W8-q8L" firstAttribute="top" secondItem="j5e-rK-taG" secondAttribute="bottom" constant="10" id="O3P-Z1-Pqw"/>
+                            <constraint firstItem="iWL-ao-WRQ" firstAttribute="centerY" secondItem="0YV-AR-QXH" secondAttribute="centerY" id="UVn-q6-l6j"/>
                             <constraint firstItem="buZ-W8-q8L" firstAttribute="centerY" secondItem="0YV-AR-QXH" secondAttribute="centerY" multiplier="1.7" id="VCs-3R-Dqq"/>
                             <constraint firstItem="j5e-rK-taG" firstAttribute="leading" secondItem="tBj-bh-ufR" secondAttribute="leading" id="gst-Nd-5IE"/>
                             <constraint firstItem="tBj-bh-ufR" firstAttribute="trailing" secondItem="j5e-rK-taG" secondAttribute="trailing" id="hjc-zw-Vud"/>
@@ -310,6 +318,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="OSc-t3-gzO"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="iWL-ao-WRQ" id="jot-FV-Pxa"/>
                         <outlet property="imageView" destination="j5e-rK-taG" id="AeO-Hc-Z7y"/>
                         <outlet property="saveImageButton" destination="buZ-W8-q8L" id="hyo-ru-ycj"/>
                     </connections>

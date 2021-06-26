@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W2x-bt-bpj">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,15 +13,15 @@
             <objects>
                 <viewController title="Meme List" id="BYZ-38-t0r" customClass="MemeListViewController" customModule="SwiftProjectSimpleMemeGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cbj-8b-POQ">
-                                <rect key="frame" x="0.0" y="145" width="414" height="751"/>
+                                <rect key="frame" x="44" y="101" width="808" height="313"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="rWl-cE-ZRU">
-                                <rect key="frame" x="20" y="98" width="37" height="37"/>
+                                <rect key="frame" x="64" y="54" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -51,21 +51,21 @@
             <objects>
                 <viewController title="Edit" id="JYm-o3-URY" customClass="EditorViewController" customModule="SwiftProjectSimpleMemeGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NKx-k7-wdE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="JW7-Qv-CU3">
-                                <rect key="frame" x="20" y="98" width="37" height="37"/>
+                                <rect key="frame" x="736" y="45.5" width="37" height="37"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0W-Q6-GYf">
-                                <rect key="frame" x="330" y="98" width="64" height="37"/>
+                                <rect key="frame" x="783" y="49" width="64" height="30"/>
                                 <state key="normal" title="Generate"/>
                                 <connections>
                                     <segue destination="zbs-yx-CPv" kind="show" identifier="showGeneratedMeme" destinationCreationSelector="makeFinalMeme:" id="0q1-Eb-18U"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text Box 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mF2-OQ-Gpw">
-                                <rect key="frame" x="10" y="652" width="394" height="34"/>
+                                <rect key="frame" x="383" y="107" width="488.5" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="0gw-tz-wGD"/>
                                     <constraint firstAttribute="height" constant="34" id="vUv-rt-ZS1"/>
@@ -74,7 +74,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text Box 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HUr-sm-qZC">
-                                <rect key="frame" x="10" y="696" width="394" height="34"/>
+                                <rect key="frame" x="383" y="148.5" width="488.5" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="uRy-J4-hgo"/>
                                     <constraint firstAttribute="height" constant="34" id="x4G-8o-fob"/>
@@ -83,7 +83,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text Box 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TPr-iz-E9O">
-                                <rect key="frame" x="10" y="740" width="394" height="34"/>
+                                <rect key="frame" x="383" y="190" width="488.5" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="H8h-G8-7aF"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="shM-nz-aoG"/>
@@ -92,7 +92,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text Box 4" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gfR-bd-Ndg">
-                                <rect key="frame" x="10" y="784" width="394" height="34"/>
+                                <rect key="frame" x="383" y="231.5" width="488.5" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="brF-3m-7Yd"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="duE-Di-Say"/>
@@ -101,15 +101,16 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text Box 5" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pz3-36-9QD">
-                                <rect key="frame" x="10" y="828" width="394" height="34"/>
+                                <rect key="frame" x="383" y="273" width="488.5" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="DsB-9s-MAA"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="zFB-h5-P3T"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HdM-6p-eW2">
-                                <rect key="frame" x="0.0" y="145" width="414" height="497"/>
+                                <rect key="frame" x="54" y="64" width="309" height="309"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="309" id="NLv-E7-cVb"/>
                                 </constraints>
@@ -134,6 +135,7 @@
                             <constraint firstItem="TPr-iz-E9O" firstAttribute="top" secondItem="HUr-sm-qZC" secondAttribute="bottom" constant="10" id="68y-Yr-dqK"/>
                             <constraint firstItem="E3h-Gu-a5z" firstAttribute="trailing" secondItem="gfR-bd-Ndg" secondAttribute="trailing" constant="10" id="6Hc-8w-1vI"/>
                             <constraint firstItem="HUr-sm-qZC" firstAttribute="centerY" secondItem="NKx-k7-wdE" secondAttribute="centerY" multiplier="0.8" id="6dv-ZU-Ajp"/>
+                            <constraint firstItem="mF2-OQ-Gpw" firstAttribute="leading" relation="lessThanOrEqual" secondItem="HdM-6p-eW2" secondAttribute="trailing" constant="20" id="7oZ-xn-Fzo"/>
                             <constraint firstItem="TPr-iz-E9O" firstAttribute="centerY" secondItem="NKx-k7-wdE" secondAttribute="centerY" id="9LW-PY-qBY"/>
                             <constraint firstItem="E3h-Gu-a5z" firstAttribute="trailing" secondItem="Y0W-Q6-GYf" secondAttribute="trailing" constant="20" id="9gF-Me-6ZO"/>
                             <constraint firstItem="JW7-Qv-CU3" firstAttribute="centerY" secondItem="Y0W-Q6-GYf" secondAttribute="centerY" id="B11-cT-A0v"/>
@@ -143,7 +145,10 @@
                             <constraint firstItem="JW7-Qv-CU3" firstAttribute="leading" secondItem="E3h-Gu-a5z" secondAttribute="leading" constant="20" id="Dx5-D6-9wX"/>
                             <constraint firstItem="pz3-36-9QD" firstAttribute="top" secondItem="gfR-bd-Ndg" secondAttribute="bottom" constant="10" id="Ezu-Yp-q0j"/>
                             <constraint firstItem="HdM-6p-eW2" firstAttribute="leading" secondItem="E3h-Gu-a5z" secondAttribute="leading" id="F4J-wy-mXY"/>
+                            <constraint firstItem="HUr-sm-qZC" firstAttribute="leading" secondItem="HdM-6p-eW2" secondAttribute="trailing" constant="20" id="GfG-Kh-wfd"/>
                             <constraint firstItem="pz3-36-9QD" firstAttribute="centerX" secondItem="NKx-k7-wdE" secondAttribute="centerX" multiplier="1.4" id="Gh7-Dg-uhy"/>
+                            <constraint firstItem="gfR-bd-Ndg" firstAttribute="leading" secondItem="HdM-6p-eW2" secondAttribute="trailing" constant="20" id="Gva-CC-dfZ"/>
+                            <constraint firstItem="TPr-iz-E9O" firstAttribute="leading" secondItem="HdM-6p-eW2" secondAttribute="trailing" constant="20" id="LEe-8j-XSn"/>
                             <constraint firstItem="gfR-bd-Ndg" firstAttribute="leading" secondItem="NKx-k7-wdE" secondAttribute="leading" constant="10" id="MeC-SM-nI2"/>
                             <constraint firstItem="Y0W-Q6-GYf" firstAttribute="top" secondItem="E3h-Gu-a5z" secondAttribute="top" constant="10" id="P66-cR-fTX"/>
                             <constraint firstItem="HdM-6p-eW2" firstAttribute="top" secondItem="JW7-Qv-CU3" secondAttribute="bottom" constant="10" id="Qcr-PI-VVA"/>
@@ -166,6 +171,7 @@
                             <constraint firstItem="Y0W-Q6-GYf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JW7-Qv-CU3" secondAttribute="trailing" constant="8" symbolic="YES" id="mgo-Ap-Hz4"/>
                             <constraint firstItem="TPr-iz-E9O" firstAttribute="centerX" secondItem="NKx-k7-wdE" secondAttribute="centerX" multiplier="1.4" id="p3a-MS-ITq"/>
                             <constraint firstItem="E3h-Gu-a5z" firstAttribute="bottom" secondItem="pz3-36-9QD" secondAttribute="bottom" id="qHg-TH-rUl"/>
+                            <constraint firstItem="pz3-36-9QD" firstAttribute="leading" secondItem="HdM-6p-eW2" secondAttribute="trailing" constant="20" id="rer-DJ-hmB"/>
                             <constraint firstItem="TPr-iz-E9O" firstAttribute="leading" secondItem="E3h-Gu-a5z" secondAttribute="leading" constant="10" id="vAZ-mB-oL3"/>
                             <constraint firstItem="Y0W-Q6-GYf" firstAttribute="leading" secondItem="JW7-Qv-CU3" secondAttribute="trailing" constant="10" id="vKe-7C-wb3"/>
                             <constraint firstItem="pz3-36-9QD" firstAttribute="centerY" secondItem="NKx-k7-wdE" secondAttribute="centerY" multiplier="1.4" id="wiw-kx-7yD"/>
@@ -175,11 +181,9 @@
                             <mask key="constraints">
                                 <exclude reference="TXe-yZ-eC4"/>
                                 <exclude reference="ifw-y9-LO2"/>
-                                <exclude reference="B11-cT-A0v"/>
                                 <exclude reference="CRy-9o-yuA"/>
                                 <exclude reference="dq6-iL-Lh6"/>
-                                <exclude reference="bf5-aY-4BM"/>
-                                <exclude reference="vKe-7C-wb3"/>
+                                <exclude reference="7oZ-xn-Fzo"/>
                                 <exclude reference="e88-G4-F5p"/>
                                 <exclude reference="xpC-Km-EQj"/>
                                 <exclude reference="0kY-cb-qaZ"/>
@@ -190,6 +194,9 @@
                                 <exclude reference="fja-x4-c6F"/>
                                 <exclude reference="Gh7-Dg-uhy"/>
                                 <exclude reference="wiw-kx-7yD"/>
+                                <exclude reference="B11-cT-A0v"/>
+                                <exclude reference="bf5-aY-4BM"/>
+                                <exclude reference="vKe-7C-wb3"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
@@ -201,13 +208,9 @@
                                 <exclude reference="Xbs-BP-6pq"/>
                                 <exclude reference="cXC-Za-qlk"/>
                                 <exclude reference="chX-B8-2cM"/>
-                                <exclude reference="Dx5-D6-9wX"/>
-                                <exclude reference="fjZ-O9-imE"/>
                                 <exclude reference="B5p-hm-WPG"/>
                                 <exclude reference="F4J-wy-mXY"/>
                                 <exclude reference="Qcr-PI-VVA"/>
-                                <exclude reference="P66-cR-fTX"/>
-                                <exclude reference="mgo-Ap-Hz4"/>
                                 <exclude reference="YgG-Jt-Raq"/>
                                 <exclude reference="1Si-mb-T2N"/>
                                 <exclude reference="kSL-3N-6A7"/>
@@ -217,6 +220,10 @@
                                 <exclude reference="bRC-MQ-PSC"/>
                                 <exclude reference="Ezu-Yp-q0j"/>
                                 <exclude reference="Yzg-79-xIv"/>
+                                <exclude reference="Dx5-D6-9wX"/>
+                                <exclude reference="fjZ-O9-imE"/>
+                                <exclude reference="P66-cR-fTX"/>
+                                <exclude reference="mgo-Ap-Hz4"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
@@ -224,11 +231,9 @@
                                 <include reference="TXe-yZ-eC4"/>
                                 <include reference="ifw-y9-LO2"/>
                                 <exclude reference="qHg-TH-rUl"/>
-                                <include reference="B11-cT-A0v"/>
                                 <include reference="CRy-9o-yuA"/>
                                 <include reference="dq6-iL-Lh6"/>
-                                <include reference="bf5-aY-4BM"/>
-                                <include reference="vKe-7C-wb3"/>
+                                <include reference="7oZ-xn-Fzo"/>
                                 <include reference="e88-G4-F5p"/>
                                 <exclude reference="gwD-z9-Kyr"/>
                                 <include reference="xpC-Km-EQj"/>
@@ -240,6 +245,9 @@
                                 <include reference="fja-x4-c6F"/>
                                 <include reference="Gh7-Dg-uhy"/>
                                 <include reference="wiw-kx-7yD"/>
+                                <include reference="B11-cT-A0v"/>
+                                <include reference="bf5-aY-4BM"/>
+                                <include reference="vKe-7C-wb3"/>
                             </mask>
                         </variation>
                     </view>
@@ -265,7 +273,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W2x-bt-bpj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="t9W-pu-Q2d">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -282,14 +290,14 @@
             <objects>
                 <viewController title="Meme" id="zbs-yx-CPv" customClass="FinalMemeViewController" customModule="SwiftProjectSimpleMemeGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0YV-AR-QXH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j5e-rK-taG">
-                                <rect key="frame" x="0.0" y="88" width="414" height="643.5"/>
+                                <rect key="frame" x="44" y="44" width="808" height="278"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buZ-W8-q8L">
-                                <rect key="frame" x="152" y="741.5" width="110" height="40"/>
+                                <rect key="frame" x="393" y="332" width="110" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Cdq-KP-6i1"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="Khl-4j-Bb4"/>
@@ -300,7 +308,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="iWL-ao-WRQ">
-                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <rect key="frame" x="429.5" y="188.5" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tBj-bh-ufR"/>

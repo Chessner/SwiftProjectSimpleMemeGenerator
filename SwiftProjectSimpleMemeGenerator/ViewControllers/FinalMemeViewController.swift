@@ -12,10 +12,10 @@ final class FinalMemeViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var saveImageButton: UIButton!
-    private let captionImageData: CaptionImageData?
+    private let captionImageData: CaptionImageRequestData?
     private var image = UIImage()
     
-    init?(coder: NSCoder, data: CaptionImageData) {
+    init?(coder: NSCoder, data: CaptionImageRequestData) {
         captionImageData = data
         super.init(coder: coder)
     }

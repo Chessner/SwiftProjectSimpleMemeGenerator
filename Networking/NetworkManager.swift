@@ -46,41 +46,49 @@ class NetworkManager {
         
     }
     
-    func fetchCaptionImage(captionImageData: CaptionImageData, completionHandler: @escaping (UIImage) -> Void){
+    func fetchCaptionImage(captionImageData: CaptionImageRequestData, completionHandler: @escaping (UIImage) -> Void){
         let session = URLSession.shared
         
         var request = URLRequest(url: getCaptionImageURL)
         request.httpMethod = "POST"
-       // request.httpBody
-        //let templateID:String = captionImageData.template_id!
         
-        //let postString = "\(templateID)&text0=Hello&text1=Hi&username=swiftproject2021memegenerator&password=swiftproject2021memegenerator"
+        var components = URLComponents(url: getCaptionImageURL, resolvingAgainstBaseURL: false)!
         
-        //request.httpBody = postString.data(using: String.Encoding.utf8)
+        let templateID:String = captionImageData.template_id!
+        let username:String = captionImageData.username!
+        let password:String = captionImageData.password!
         
-        let jsonData:Data = try! JSONEncoder().encode(captionImageData)
-        request.httpBody? = jsonData
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        components.queryItems = [
+            URLQueryItem(name: "template_id", value: "\(templateID)"),
+            URLQueryItem(name: "username", value: "\(username)"),
+            URLQueryItem(name: "password", value: "\(password)")
+        ]
+        
+        var i = 0
+        for box in captionImageData.boxes {
+            components.queryItems?.append(URLQueryItem(name: "boxes[\(i)][text]", value: box))
+            i += 1
+        }
+        
+        let query = components.url!.query
+        
+        request.httpBody = Data(query!.utf8)
         
         let task = session.dataTask(with: request,completionHandler: { data, response, error in
             print(response?.description ?? "")
             
             if let data = data{
-                print(String(decoding: data, as: UTF8.self))
+                let imageData = try? JSONDecoder().decode(CaptionImageResponseData.self, from: data)
+                
+                self.fetchMemeImage(url: imageData?.data?.url ?? "", completionHandler: { [weak self] (newImage) in
+                    completionHandler(newImage.image ?? UIImage())
+                })
             }
             print(error.debugDescription)
             
         })
         task.resume()
-//        let task = session.dataTask(with: request, completionHandler: { data, response, error in
-//            print(response?.description ?? "")
-//
-//            if let data = data{
-//                print(String(decoding: data, as: UTF8.self))
-//            }
-//            print(error.debugDescription)
-//        })
-//        task.resume()
+
     }
     
 }

@@ -35,36 +35,36 @@ final class EditorViewController: UIViewController {
 
     @IBSegueAction func makeFinalMeme(_ coder: NSCoder) -> FinalMemeViewController? {
 
-        var boxes = [Box]()
+        var boxes = [String]()
         
         switch meme.box_count {
         case 2:
-            boxes.append(Box(text: text1.text ?? "Error"))
-            boxes.append(Box(text: text2.text ?? "Error"))
+            boxes.append(text1.text ?? "Error")
+            boxes.append(text2.text ?? "Error")
         case 3:
-            boxes.append(Box(text: text1.text ?? "Error"))
-            boxes.append(Box(text: text2.text ?? "Error"))
-            boxes.append(Box(text: text3.text ?? "Error"))
+            boxes.append(text1.text ?? "Error")
+            boxes.append(text2.text ?? "Error")
+            boxes.append(text3.text ?? "Error")
         case 4:
-            boxes.append(Box(text: text1.text ?? "Error"))
-            boxes.append(Box(text: text2.text ?? "Error"))
-            boxes.append(Box(text: text3.text ?? "Error"))
-            boxes.append(Box(text: text4.text ?? "Error"))
+            boxes.append(text1.text ?? "Error")
+            boxes.append(text2.text ?? "Error")
+            boxes.append(text3.text ?? "Error")
+            boxes.append(text4.text ?? "Error")
         case 5:
-            boxes.append(Box(text: text1.text ?? "Error"))
-            boxes.append(Box(text: text2.text ?? "Error"))
-            boxes.append(Box(text: text3.text ?? "Error"))
-            boxes.append(Box(text: text4.text ?? "Error"))
-            boxes.append(Box(text: text5.text ?? "Error"))
+            boxes.append(text1.text ?? "Error")
+            boxes.append(text2.text ?? "Error")
+            boxes.append(text3.text ?? "Error")
+            boxes.append(text4.text ?? "Error")
+            boxes.append(text5.text ?? "Error")
         default:
-            boxes.append(Box(text: text1.text ?? "Error"))
-            boxes.append(Box(text: text2.text ?? "Error"))
-            boxes.append(Box(text: text3.text ?? "Error"))
-            boxes.append(Box(text: text4.text ?? "Error"))
-            boxes.append(Box(text: text5.text ?? "Error"))
+            boxes.append(text1.text ?? "Error")
+            boxes.append(text2.text ?? "Error")
+            boxes.append(text3.text ?? "Error")
+            boxes.append(text4.text ?? "Error")
+            boxes.append(text5.text ?? "Error")
         }
         
-        let finalImageData = CaptionImageData(id: meme.id ?? "", username: "blablabla", password: "blablabla", boxes: boxes)
+        let finalImageData = CaptionImageRequestData(id: meme.id ?? "", username: "swiftproject2021memegenerator", password: "swiftproject2021memegenerator", boxes: boxes)
         
         return FinalMemeViewController(coder: coder, data: finalImageData)
     }

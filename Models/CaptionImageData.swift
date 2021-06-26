@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct CaptionImageData : Codable{
+struct CaptionImageRequestData : Codable{
     var template_id: String?
     var username: String?
     var password: String?
-    var boxes: [Box]?
+    var boxes: [String]
     
-    init(id: String, username: String, password: String, boxes: [Box]) {
+    init(id: String, username: String, password: String, boxes: [String]) {
         template_id = id
         self.username = username
         self.password = password
@@ -27,4 +27,14 @@ struct Box: Codable{
     init(text: String) {
         self.text = text
     }
+}
+
+struct CaptionImageResponseData : Codable{
+    var success: Bool?
+    var data: urlData?
+}
+
+struct urlData : Codable{
+    var url: String?
+    var page_url: String?
 }
